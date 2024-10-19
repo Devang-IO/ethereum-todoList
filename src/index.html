@@ -1,58 +1,52 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Minimal Todo List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Minimal Todo</h1>
+            <p class="account">Account: <span id="account"></span></p>
+        </header>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>TODO List</title>
-    </head>
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-    <style>
-    
-        #completedTaskList .content {
-            color: grey;
-            text-decoration: line-through;
-        }
-
-    </style>
-
-    <body>
-        Account: <span id="account"></span>
-
-        <div id='loader' style="margin:0px;">Loading...</div>
+        <div id='loader' class="loader">Loading...</div>
         
-        <div id="content" class="card container" style="margin-top:30px;">
-
-            <form style="margin:10px" onSubmit="App.createTask(); return false;">
-                <input id="newTask" type="text" class="form-control" placeholder="Add task..." required>
-                <input type="submit" hidden="">
+        <div id="content" class="content">
+            <form onSubmit="App.createTask(); return false;">
+                <input id="newTask" type="text" placeholder="Add a new task..." required>
+                <button type="submit">Add</button>
             </form>
 
-            <ul id="taskList">
-                <div class="taskTemplate" style="display:none">
-                    <label>
-                        <input type="checkbox">
-                        <span class="content"></span>
-                    </label>
+            <div class="task-lists">
+                <div class="task-list">
+                    <h2>To Do</h2>
+                    <ul id="taskList"></ul>
                 </div>
-            </ul>
+                <div class="task-list">
+                    <h2>Completed</h2>
+                    <ul id="completedTaskList"></ul>
+                </div>
+            </div>
 
-            <hr>
-
-            <ul id="completedTaskList" class="list-unstyled">
-            </ul>
-
+            <div class="taskTemplate" style="display:none">
+                <label>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span class="task-content"></span>
+                </label>
+            </div>
         </div>
-
-    </body>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
-    <script type="text/javascript" language="javascript" src="index.js"></script>
-    <script src="/contract.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
+    <script src="index.js"></script>
+    <script src="contract.js"></script>
+</body>
 </html>

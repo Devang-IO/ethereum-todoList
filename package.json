@@ -7,12 +7,19 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "Raj Ranjan",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "truffle-contract": "^4.0.31"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "truffle-contract": "^4.0.31",
+    "web3": "^4.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
